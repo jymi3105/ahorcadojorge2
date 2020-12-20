@@ -7,6 +7,7 @@ var palabra = "CABALLITO DE MADERA";
 var nueva = "";
 var listaLetras = [];
 var fallos = 6;
+var aciertos = 0;
 
 
 function IntroducirPalabra() {
@@ -38,11 +39,27 @@ function DecirLetra() {
             document.getElementById("acierto").innerHTML = "Fallo!";
             document.getElementById("acierto").className += "acierto rojo";
             v3.play();
+            if (fallos == 4) {
+                alert("PISTA: Hay más de una palabra.")
+            } else if (fallos == 3) {
+                alert("PISTA: No hay pista!! jejeje");
+            } else if (fallos == 2) {
+                alert("PISTA: Se trata de un mamifero");
+            } else if (fallos == 1) {
+                alert("PISTA: Pero este no mama nada");
+            }
         } else {
             document.getElementById("acierto").innerHTML = "Bien!";
             document.getElementById("acierto").className += "acierto verde";
             v4.play();
         }
+        posicion = palabra.indexOf(letra);
+        while (posicion != -1) {
+            aciertos++;
+            posicionStart = posicion + 1;
+            posicion = palabra.indexOf(letra, posicionStart);
+        }
+
     } else {
         alert("La letra '" + letra + "' ya esta dicha.")
     }
@@ -72,10 +89,27 @@ function DecirLetra() {
         document.getElementById("palabrasolucion").disabled = true;
         document.getElementById("botonresolver").disabled = true;
         document.getElementById("volverJugar").disabled = false;
-        document.getElementById("palabrasolucion").value = palabra;
+        document.getElementById("palabrasolucion").value = "";
         v2.play();
         fallos = 6;
-        alert("Has perdido y te vamos a colgar.\nLa palabra era: " + palabra);
+        alert("Has perdido y te vamos a colgar.\nLa palabra era...\n¡JUEGA OTRA VEZ!");
+    }
+
+    if (aciertos == palabra.length) {
+        document.getElementById("letra").disabled = true;
+        document.getElementById("botondecirletra").disabled = true;
+        document.getElementById("palabrasolucion").disabled = true;
+        document.getElementById("botonresolver").disabled = true;
+        document.getElementById("volverJugar").disabled = false;
+        document.getElementById("acierto").innerHTML = "Felicidades !!";
+        document.getElementById("acierto").className += "zoom-in encuadre";
+        document.getElementById("letrasdichas").innerHTML="";
+        v.play();
+        //Esto lo pongo porque si no  me quita la clase con el setTimeOut que puse anteriormente
+        //Y aqui le vuelvo a poner las clases, porque en el anterior se las quitaba
+        setTimeout(function () {
+            document.getElementById("acierto").className = "zoom-in encuadre";
+        }, 800);
     }
 }
 
