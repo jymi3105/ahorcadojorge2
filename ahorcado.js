@@ -12,6 +12,7 @@ var aciertos = 0;
 
 function IntroducirPalabra() {
     //  palabra = document.getElementById("palabraorigen").value.toUpperCase();
+    document.getElementById("contenerdor").style.backgroundColor="rgba(233, 228, 207, 0.5)";
     if (palabra != "") {
         document.getElementById("cuadrojugador1").style.display = "none";
         document.getElementById("cuadrojugador2").style.display = "block";
@@ -123,6 +124,7 @@ function Resolver() {
             document.getElementById("palabrasolucion").disabled = true;
             document.getElementById("botonresolver").disabled = true;
             document.getElementById("volverJugar").disabled = false;
+            document.getElementById("letrasdichas").innerHTML="";
             document.getElementById("acierto").innerHTML = "Felicidades !!";
             document.getElementById("acierto").className += "zoom-in encuadre";
             v.play();
@@ -163,6 +165,8 @@ function volverJugar() {
     document.getElementById("cuadropalabra").style.display = "none";
     document.getElementById("imagen").style.display = "none";
     document.getElementById("palabrasolucion").value = "";
-    document.getElementById("palabraorigen").value = "";
+    //quito el felicidades, y sus clases
+    document.getElementById("acierto").innerHTML = "";
+    document.getElementById("acierto").className = "";
     fallos = 6;
 }

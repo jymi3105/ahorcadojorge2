@@ -3,8 +3,14 @@
 }
 
 body{
-    background-color:rgb(241, 223, 223);
-    /*background-image: url("sobri.jpg");*/
+    background-image: url("sobri.jpg");
+}
+
+button{
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: chartreuse;
+    padding: 6px;
 }
 
 audio {
@@ -61,6 +67,7 @@ label{
 }
 
 #colgado {
+    background-color: rgba(255, 255, 250, 0.5);
     width: 70%;
 }
 
