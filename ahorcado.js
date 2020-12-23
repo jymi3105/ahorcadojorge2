@@ -12,7 +12,7 @@ var aciertos = 0;
 
 function IntroducirPalabra() {
     //  palabra = document.getElementById("palabraorigen").value.toUpperCase();
-    document.getElementById("contenerdor").style.backgroundColor="rgba(233, 228, 207, 0.5)";
+    document.getElementById("contenerdor").style.backgroundColor = "rgba(233, 228, 207, 0.5)";
     if (palabra != "") {
         document.getElementById("cuadrojugador1").style.display = "none";
         document.getElementById("cuadrojugador2").style.display = "block";
@@ -104,7 +104,7 @@ function DecirLetra() {
         document.getElementById("volverJugar").disabled = false;
         document.getElementById("acierto").innerHTML = "Felicidades !!";
         document.getElementById("acierto").className += "zoom-in encuadre";
-        document.getElementById("letrasdichas").innerHTML="";
+        document.getElementById("letrasdichas").innerHTML = "";
         v.play();
         //Esto lo pongo porque si no  me quita la clase con el setTimeOut que puse anteriormente
         //Y aqui le vuelvo a poner las clases, porque en el anterior se las quitaba
@@ -124,9 +124,12 @@ function Resolver() {
             document.getElementById("palabrasolucion").disabled = true;
             document.getElementById("botonresolver").disabled = true;
             document.getElementById("volverJugar").disabled = false;
-            document.getElementById("letrasdichas").innerHTML="";
+            document.getElementById("letrasdichas").innerHTML = "";
             document.getElementById("acierto").innerHTML = "Felicidades !!";
             document.getElementById("acierto").className += "zoom-in encuadre";
+            setTimeout(function () {
+                document.getElementById("imagen2").style.right="0";
+            }, 1600);
             v.play();
         } else {
             if (fallos > 1) {
@@ -146,7 +149,9 @@ function Resolver() {
                 document.getElementById("palabrasolucion").disabled = true;
                 document.getElementById("botonresolver").disabled = true;
                 document.getElementById("volverJugar").disabled = false;
+
             }
+
             setTimeout(function () {
                 document.getElementById("acierto").className = "";
             }, 800);

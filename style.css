@@ -71,6 +71,14 @@ label{
     width: 70%;
 }
 
+#imagen2{
+    position: fixed;
+    top: 11%;
+    right: -90%;
+    transition: right 2s;
+    /*display: none;*/
+}
+
 #acierto {
     text-align: center;
     min-height: 24px;
