@@ -127,6 +127,7 @@ function Resolver() {
             document.getElementById("letrasdichas").innerHTML = "";
             document.getElementById("acierto").innerHTML = "Felicidades !!";
             document.getElementById("acierto").className += "zoom-in encuadre";
+            //Esta funcion es para que aparezca la funcion desde la derecha
             setTimeout(function () {
                 document.getElementById("imagen2").style.right="0";
             }, 1600);
@@ -140,7 +141,7 @@ function Resolver() {
                 fallos--;
                 document.getElementById("intentos").innerHTML = "Tienes " + fallos + " oportunidades.";
                 document.getElementById("imagen").setAttribute("src", "img/ahorcado_" + fallos + ".png");
-                alert("Has fallado, pero aun te queda alguna oportunidades");
+                alert("Has fallado, pero aun te queda algunas oportunidades");
             } else {
                 v2.play();
                 alert("Has perdido!! Has metido\n" + document.getElementById("palabrasolucion").value.toUpperCase() + "\ny era: " + palabra);
